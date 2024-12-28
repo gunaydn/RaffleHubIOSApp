@@ -1,8 +1,7 @@
-//
-//  Participant.swift
-//  RaffleHub
-//
-//  Created by Kaan Cem Günaydın on 19.12.2024.
-//
-
 import Foundation
+
+struct Participant: Identifiable {
+    let id = UUID()
+    var name: String
+    var gender: String?
+}

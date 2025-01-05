@@ -35,7 +35,6 @@ struct ContentView: View {
                     Button(action: {
                         viewModel.addParticipant(name: participantName, gender: participantGender)
                         participantName = ""
-                        participantGender = "Male"
                     }) {
                         Text("Add")
                             .font(.headline)
@@ -55,6 +54,7 @@ struct ContentView: View {
                             }
                         }
                         .listRowInsets(EdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 8))
+                        .buttonStyle(PlainButtonStyle())
                     }
                 }
                 .listStyle(PlainListStyle())
@@ -146,12 +146,14 @@ struct ParticipantCard: View {
 
     var body: some View {
         HStack {
-            Text(participant.name)
-                .font(.system(size: 14, weight: .medium))
+            VStack(alignment: .leading) {
+                Text(participant.name)
+                    .font(.system(size: 14, weight: .medium))
+            }
 
             Spacer()
 
-            // Silme Butonu
+            // Sadece Çöp Butonu Tıklanabilir
             Button(action: onDelete) {
                 Image(systemName: "trash")
                     .foregroundColor(.red)
@@ -164,6 +166,7 @@ struct ParticipantCard: View {
         .background(Color(.systemGray6))
         .cornerRadius(8)
         .shadow(color: Color.black.opacity(0.05), radius: 2, x: 0, y: 1)
+        // HStack'e tıklama işlevi eklenmedi
     }
 }
 

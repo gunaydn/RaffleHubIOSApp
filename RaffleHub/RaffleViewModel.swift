@@ -38,8 +38,8 @@ class RaffleViewModel: ObservableObject {
                 raffleResult = "The team is \(winner1.name) and \(winner2.name)!"
             }
         case "Volleyball":
-            let males = participants.filter { $0.gender == "Male" }
-            let females = participants.filter { $0.gender == "Female" }
+            let males = participants.filter { $0.gender == "Male" }.shuffled()
+            let females = participants.filter { $0.gender == "Female" }.shuffled()
             let unknowns = participants.filter { $0.gender == nil }
 
             var team1: [Participant] = []
